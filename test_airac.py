@@ -118,3 +118,12 @@ def test_parse_airac_ident():
 
     with pytest.raises(ValueError):
         Airac.from_ident("2115")
+
+def test_airac_comparison():
+    assert Airac() == Airac()
+    assert Airac().next() > Airac()
+    assert Airac().previous() < Airac()
+    assert Airac().next() >= Airac()
+    assert Airac().previous() <= Airac()
+    assert Airac() != Airac().next()
+  
