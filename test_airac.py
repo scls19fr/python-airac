@@ -89,6 +89,9 @@ def test_airac_cycle():
     assert airac_cycle_ident(datetime.date(2020, 1, 30)) == 2002
 
 def test_airac_object():
+    airac = Airac(datetime.date(2020, 1, 10))
+    assert airac.date == datetime.date(2020, 1, 2)
+
     year = 2020
     airac = Airac.from_year(year)
     assert airac.date == datetime.date(2020, 1, 2)
