@@ -1,9 +1,11 @@
+import pytest
+
 import airac
 from airac import airac_date
 from airac import airac_first_cycle_date, airac_last_cycle_date
 from airac import airac_cycle_dates, number_airac_cycles
 from airac import Airac
-
+from airac import airac_cycle_tuple, airac_cycle, airac_cycle_ident
 
 import datetime
 
@@ -82,7 +84,9 @@ def airac_number_of_cycles():
             assert n == 14
 
 def test_airac_cycle():
-    pass
+    assert airac_cycle_tuple(datetime.date(2020, 1, 30)) == (2020, 2)
+    assert airac_cycle(2020, 2) == 2002
+    assert airac_cycle_ident(datetime.date(2020, 1, 30)) == 2002
 
 def test_airac_object():
     year = 2020
@@ -112,4 +116,5 @@ def test_parse_airac_ident():
     assert Airac.from_ident("2002").date == datetime.date(2020, 1, 30)
     assert Airac.from_ident("2014").date == datetime.date(2020, 12, 31)
 
-    # assert_throws ArgumentError parse(Airac, "2115")
+    with pytest.raises(ValueError):
+        Airac.from_ident("2115")
