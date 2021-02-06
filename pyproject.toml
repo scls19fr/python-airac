@@ -1,0 +1,25 @@
+[tool.poetry]
+name = "airac"
+version = "0.0.1"
+description = "Python library to deal with AIRAC cycle dates."
+authors = [
+    "Sébastien Celles <s.celles@gmail.com>"
+]
+license = "MIT"
+
+readme = "README.md"
+
+homepage = "https://github.com/scls19fr/python-airac"
+repository = "https://github.com/scls19fr/python-airac"
+documentation = "https://github.com/scls19fr/python-airac"
+
+keywords = ["icao", "airac", "aeronautical", "data", "date"]
+
+classifiers = [
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "License :: OSI Approved :: MIT License"
+]
+
+# Requirements
+[tool.poetry.dependencies]
+python = "^3.8"
